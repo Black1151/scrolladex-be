@@ -8,7 +8,7 @@ export default class DepartmentsController {
   }
 
   public async store ({ request, response }: HttpContextContract) {
-    const departmentData = request.only(['name'])
+    const departmentData = request.only(['departmentName', 'addressLineOne', 'addressLineTwo', 'town', 'county', 'postcode'])
     const department = await Department.create(departmentData)
     return response.json(department)
   }
@@ -19,10 +19,15 @@ export default class DepartmentsController {
   }
 
   public async update ({ params, request, response }: HttpContextContract) {
-    const departmentData = request.only(['name'])
+    const departmentData = request.only(['departmentName', 'addressLineOne', 'addressLineTwo', 'town', 'county', 'postcode'])
     const department = await Department.find(params.id)
     if (department) {
-      department.name = departmentData.name
+      department.departmentName = departmentData.departmentName
+      department.addressLineOne = departmentData.addressLineOne
+      department.addressLineTwo = departmentData.addressLineTwo
+      department.town = departmentData.town
+      department.county = departmentData.county
+      department.postcode = departmentData.postcode
       await department.save()
     }
     return response.json(department)

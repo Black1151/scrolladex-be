@@ -6,7 +6,22 @@ export default class Department extends BaseModel {
   public id: number
 
   @column()
-  public name: string
+  public departmentName: string
+
+  @column()
+  public addressLineOne: string
+
+  @column()
+  public addressLineTwo: string
+
+  @column()
+  public town: string
+
+  @column()
+  public county: string
+
+  @column()
+  public postcode: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
