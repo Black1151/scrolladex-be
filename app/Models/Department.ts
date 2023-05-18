@@ -5,14 +5,14 @@ export default class Department extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column({ columnName: 'department_name' })
-  public departmentName: string
+  @column()
+  public department_name: string
 
-  @column({ columnName: 'address_line_one' })
-  public addressLineOne: string
+  @column()
+  public address_line_one: string
 
-  @column({ columnName: 'address_line_two' })
-  public addressLineTwo: string
+  @column()
+  public address_line_two?: string
 
   @column()
   public town: string
@@ -24,8 +24,8 @@ export default class Department extends BaseModel {
   public postcode: string
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updated_at: DateTime
 }
