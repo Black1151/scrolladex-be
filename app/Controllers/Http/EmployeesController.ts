@@ -8,7 +8,7 @@ export default class EmployeesController {
   }
 
   public async store ({ request, response }: HttpContextContract) {
-    const employeeData = request.only(['title', 'firstName', 'lastName', 'empNo', 'jobTitle', 'departmentId', 'telephone', 'email', 'profilePicture'])
+    const employeeData = request.only(['title', 'first_name', 'last_name', 'emp_no', 'job_title', 'department_id', 'telephone', 'email', 'profile_picture'])
     const employee = await Employee.create(employeeData)
     return response.json(employee)
   }
@@ -19,7 +19,7 @@ export default class EmployeesController {
   }
 
   public async update ({ params, request, response }: HttpContextContract) {
-    const employeeData = request.only(['title', 'firstName', 'lastName', 'empNo', 'jobTitle', 'departmentId', 'telephone', 'email', 'profilePicture'])
+    const employeeData = request.only(['title', 'first_name', 'last_name', 'emp_no', 'job_title', 'department_id', 'telephone', 'email', 'profile_picture'])
     const employee = await Employee.find(params.id)
     if (employee) {
       employee.merge(employeeData)

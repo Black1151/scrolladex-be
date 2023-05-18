@@ -10,22 +10,22 @@ export default class Employee extends BaseModel {
   public title: string
 
   @column()
-  public firstName: string
+  public first_name: string
 
   @column()
-  public lastName: string
+  public last_name: string
 
   @column()
-  public empNo: string
+  public emp_no: string
 
   @column()
-  public jobTitle: string
+  public job_title: string
 
   @column()
-  public departmentId: number
+  public department_id: number
 
   @belongsTo(() => Department, {
-    foreignKey: 'departmentId',
+    foreignKey: 'department_id',
   })
   public department: BelongsTo<typeof Department>
 
@@ -36,11 +36,11 @@ export default class Employee extends BaseModel {
   public email: string
 
   @column()
-  public profilePicture: string | null
+  public profile_picture: string | null
 
   @column.dateTime({ autoCreate: true })
-  public createdAt: DateTime
+  public created_at: DateTime
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
-  public updatedAt: DateTime
+  public updated_at: DateTime
 }
