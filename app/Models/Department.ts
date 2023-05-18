@@ -5,13 +5,13 @@ export default class Department extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column()
+  @column({ columnName: 'department_name' })
   public departmentName: string
 
-  @column()
+  @column({ columnName: 'address_line_one' })
   public addressLineOne: string
 
-  @column()
+  @column({ columnName: 'address_line_two' })
   public addressLineTwo: string
 
   @column()

@@ -6,9 +6,9 @@ export default class Departments extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
-      table.string('departmentName').notNullable()
-      table.string('addressLineOne').notNullable()
-      table.string('addressLineTwo')
+      table.string('department_name').notNullable()
+      table.string('address_line_one').notNullable()
+      table.string('address_line_two')
       table.string('town').notNullable()
       table.string('county').notNullable()
       table.string('postcode').notNullable()
