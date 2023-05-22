@@ -14,7 +14,7 @@ export default class Employees extends BaseSchema {
       table.integer('department_id').unsigned().references('id').inTable('departments').onDelete('CASCADE')
       table.string('telephone').notNullable()
       table.string('email').notNullable().unique()
-      table.string('profile_picture').nullable()
+      table.string('profile_picture_url').nullable()
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })
     })

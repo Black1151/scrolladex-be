@@ -36,7 +36,7 @@ export default class Employee extends BaseModel {
   public email: string
 
   @column()
-  public profile_picture: string | null
+  public profile_picture_url: string | null
 
   @column.dateTime({ autoCreate: true })
   public created_at: DateTime
