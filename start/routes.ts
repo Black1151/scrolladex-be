@@ -20,6 +20,7 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
+Route.get('/employees/overview', 'EmployeesController.overview')
 Route.resource('/departments', 'DepartmentsController').apiOnly()
 Route.resource('/employees', 'EmployeesController').apiOnly()
 
