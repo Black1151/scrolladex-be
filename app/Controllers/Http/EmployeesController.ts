@@ -48,7 +48,7 @@ export default class EmployeesController {
         name: fileName,
         overwrite: true,
       })
-      employeeData.profile_picture_url = `${Env.get('APP_URL')}/uploads/${fileName}`
+      employeeData.profile_picture_url = `/uploads/${fileName}`
     }
   
     const employee = await Employee.create(employeeData as Employee)
