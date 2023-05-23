@@ -22,7 +22,6 @@ export default class EmployeesController {
 
   public async overview ({ response }: HttpContextContract) {
     const employees = await Employee.query().select('id', 'title', 'first_name', 'last_name', 'job_title', 'department_id', "profile_picture_url")
-  
     return response.json(employees)
   }
   
@@ -49,7 +48,7 @@ export default class EmployeesController {
         name: fileName,
         overwrite: true,
       })
-      employeeData.profile_picture_url = `uploads/${fileName}`
+      employeeData.profile_picture_url = `${Env.get('APP_URL')}/uploads/${fileName}`
     }
   
     const employee = await Employee.create(employeeData as Employee)
