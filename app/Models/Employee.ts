@@ -34,12 +34,15 @@ export default class Employee extends BaseModel {
   public department: BelongsTo<typeof Department>
 
   @belongsTo(() => User, { 
-    foreignKey: 'userId',
+    foreignKey: 'user_id',
   })
   public user: BelongsTo<typeof User>
 
   @column()
   public telephone: string
+
+  @column()
+  public email: string
 
   @column()
   public profile_picture_url: string | null
