@@ -21,9 +21,20 @@ export default class EmployeesController {
   }
 
   public async overview ({ response }: HttpContextContract) {
-    const employees = await Employee.query().select('id', 'title', 'first_name', 'last_name', 'job_title', 'department_id', "profile_picture_url")
-    return response.json(employees)
+    const employees = await Employee.query()
+      .select('id', 'title', 'first_name', 'last_name', 'job_title', 'department_id', "profile_picture_url")
+      .preload('department'); 
+  
+    const employeesWithDepartment = employees.map((employee) => {
+      return {
+        ...employee.serialize(), 
+        department_name: employee.department.department_name, 
+      };
+    });
+  
+    return response.json(employeesWithDepartment);
   }
+  
   
   public async store({ request, response }: HttpContextContract) {
     const profilePicture = request.file('profile_picture', {
