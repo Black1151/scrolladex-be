@@ -24,3 +24,9 @@ Route.get('/employees/overview', 'EmployeesController.overview')
 Route.resource('/departments', 'DepartmentsController').apiOnly()
 Route.resource('/employees', 'EmployeesController').apiOnly()
 
+Route.post('/register', 'AuthController.register')
+Route.post('/login', 'AuthController.login')
+Route.post('/logout', 'AuthController.logout')
+Route.get('/profile', 'AuthController.showProfile')
+
+
