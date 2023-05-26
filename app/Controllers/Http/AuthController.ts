@@ -5,14 +5,11 @@ export default class AuthController {
   
   public async register({ request, auth, response }: HttpContextContract) {
     const userData = request.only(['username', 'password'])
-
     const user = new User()
     user.username = userData.username
     user.password = userData.password
     await user.save()
-
     await auth.login(user)
-
     response.send({ message: 'Registered and logged in successfully' })
   }
   
@@ -40,4 +37,16 @@ export default class AuthController {
       response.unauthorized('Not logged in')
     }
   }
+
+  public async checkSession({ auth, response }: HttpContextContract) {
+    if (auth.isLoggedIn) {
+      return { authenticated: true }
+    } else {
+      return response.unauthorized({ message: 'Not logged in' })
+    }
+  }
 }
+
+
+
+

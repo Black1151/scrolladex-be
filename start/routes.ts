@@ -28,5 +28,7 @@ Route.post('/register', 'AuthController.register')
 Route.post('/login', 'AuthController.login')
 Route.post('/logout', 'AuthController.logout')
 Route.get('/profile', 'AuthController.showProfile')
+Route.get('/api/check-session', 'AuthController.checkSession')
+
 
 
