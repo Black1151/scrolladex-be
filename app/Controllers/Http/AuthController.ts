@@ -1,5 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
+import Hash from '@ioc:Adonis/Core/Hash'
 
 export default class AuthController {
   
@@ -15,12 +16,12 @@ export default class AuthController {
   
   public async login({ request, auth, response }: HttpContextContract) {
     const user = request.only(['username', 'password'])
-
+    
     try {
-      await auth.attempt(user.username, user.password)
+      await auth.use('web').attempt(user.username, user.password)
       response.send({ message: 'Logged in successfully' })
     } catch {
-      response.badRequest('Invalid credentials')
+      response.unauthorized('Invalid credentials')
     }
   }
 
