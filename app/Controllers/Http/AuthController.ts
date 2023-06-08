@@ -1,7 +1,5 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
-import Hash from '@ioc:Adonis/Core/Hash'
-
 export default class AuthController {
   
   public async register({ request, auth, response }: HttpContextContract) {
@@ -24,6 +22,7 @@ export default class AuthController {
       response.unauthorized('Invalid credentials')
     }
   }
+  
 
   public async logout({ auth, response }: HttpContextContract) {
     await auth.logout()
@@ -43,9 +42,10 @@ export default class AuthController {
     if (auth.isLoggedIn) {
       return { authenticated: true }
     } else {
-      return response.unauthorized({ message: 'Not logged in' })
+      return response.unauthorized({ authenticated: false})
     }
-  }
+}
+
 }
 
 
