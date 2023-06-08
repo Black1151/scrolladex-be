@@ -40,5 +40,8 @@
   },
   "testProviders": [
     "@japa/preset-adonis/TestsProvider"
+  ],
+  "metaFiles": [
+    "certs/ssl/*"
   ]
 }
