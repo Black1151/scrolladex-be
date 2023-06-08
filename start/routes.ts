@@ -19,7 +19,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
-
+Route.group(() => {
 Route.get('/employees/overview', 'EmployeesController.overview')
 Route.resource('/departments', 'DepartmentsController').apiOnly()
 Route.resource('/employees', 'EmployeesController').apiOnly()
@@ -28,7 +28,13 @@ Route.post('/register', 'AuthController.register')
 Route.post('/login', 'AuthController.login')
 Route.post('/logout', 'AuthController.logout')
 Route.get('/profile', 'AuthController.showProfile')
-Route.get('/api/check-session', 'AuthController.checkSession')
+Route.get('check-session', 'AuthController.checkSession')
+}).prefix('api')
+
+
+
+
+
 
 
 
