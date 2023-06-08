@@ -87,7 +87,8 @@ export default sessionConfig({
   cookie: {
     path: '/',
     httpOnly: true,
-    sameSite: false,
+    sameSite: 'lax', 
+    secure: false, 
   },
 
   /*
